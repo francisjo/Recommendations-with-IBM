@@ -14,7 +14,7 @@ The goal of the project is creating four recommendation systems to on real data 
     - Content Based Recommendations.
     - Matrix Factorization.
 
-The data is provided by Figure Eight for the Udacity Data Science Nanodegree Program.
+The data is provided by IBM for the Udacity Data Science Nanodegree Program.
 
 ## Installation <a name="installation"/>
 ##### The following packages are required:
