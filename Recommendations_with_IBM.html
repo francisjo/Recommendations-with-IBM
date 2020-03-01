@@ -14537,7 +14537,7 @@ Name: 1, Length: 5149, dtype: int32</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">find_similar_users</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">user_item</span><span class="o">=</span><span class="n">user_item</span><span class="p">):</span>
@@ -14575,7 +14575,7 @@ Name: 1, Length: 5149, dtype: int32</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Do a spot check of your function</span>
@@ -14619,7 +14619,7 @@ The 3 most similar users to user 46 are: [1, 3933, 23]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_article_names</span><span class="p">(</span><span class="n">article_ids</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">):</span>
@@ -14696,7 +14696,8 @@ The 3 most similar users to user 46 are: [1, 3933, 23]
     <span class="c1"># Create recommendations for this user</span>
     <span class="k">for</span> <span class="n">user_neighb</span> <span class="ow">in</span> <span class="n">most_similar_users</span><span class="p">:</span>
         <span class="n">neighb_article_ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">get_user_articles</span><span class="p">(</span><span class="n">user_neighb</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
-        <span class="n">recs</span> <span class="o">+=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">neighb_article_ids</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">user_article_ids</span><span class="p">))</span>
+        <span class="n">recs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">()</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">recs</span><span class="p">,</span> <span class="n">neighb_article_ids</span><span class="p">))</span> 
+        <span class="c1">#recs += list(set(neighb_article_ids) - set(user_article_ids))</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">recs</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">m</span><span class="p">:</span>
             <span class="k">break</span>
     <span class="n">recs</span> <span class="o">=</span> <span class="n">recs</span><span class="p">[:</span><span class="n">m</span><span class="p">]</span>
@@ -14711,7 +14712,7 @@ The 3 most similar users to user 46 are: [1, 3933, 23]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Check Results</span>
@@ -14728,22 +14729,22 @@ The 3 most similar users to user 46 are: [1, 3933, 23]
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[28]:</div>
+    <div class="prompt output_prompt">Out[27]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&#39;insights from new york car accident reports&#39;,
- &#39;accelerate your workflow with dsx&#39;,
- &#39;apache spark lab, part 2: querying data&#39;,
- &#39;deep learning from scratch i: computational graphs&#39;,
- &#39;data visualization playbook: telling the data story&#39;,
- &#39;declarative machine learning&#39;,
- &#39;brunel 2.0 preview&#39;,
- &#39;markdown for jupyter notebooks cheatsheet&#39;,
- &#39;get social with your notebooks in dsx&#39;,
- &#39;analyze facebook data using ibm watson and watson studio&#39;]</pre>
+<pre>[&#39;using pixiedust for fast, flexible, and easier data analysis and experimentation&#39;,
+ &#39;access db2 warehouse on cloud and db2 with python&#39;,
+ &#39;time series prediction using recurrent neural networks (lstms)&#39;,
+ &#39;finding optimal locations of new store using decision optimization&#39;,
+ &#39;rapidly build machine learning flows with dsx&#39;,
+ &#39;sudoku&#39;,
+ &#39;working with ibm cloud object storage in python&#39;,
+ &#39;categorize urban density&#39;,
+ &#39;working with ibm cloud object storage in r&#39;,
+ &#39;predict loan applicant behavior with tensorflow neural networking&#39;]</pre>
 </div>
 
 </div>
@@ -14754,7 +14755,7 @@ The 3 most similar users to user 46 are: [1, 3933, 23]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Test your functions here - No need to change this code - just run this cell</span>
@@ -14806,7 +14807,7 @@ The 3 most similar users to user 46 are: [1, 3933, 23]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_top_sorted_users</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">user_item</span><span class="o">=</span><span class="n">user_item</span><span class="p">):</span>
@@ -14828,29 +14829,23 @@ The 3 most similar users to user 46 are: [1, 3933, 23]
 <span class="sd">                    highest of each is higher in the dataframe</span>
 <span class="sd">     </span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="c1"># Your code here</span>
-    <span class="c1"># Column names</span>
-    <span class="n">colName</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;neighbor_id&#39;</span><span class="p">,</span> <span class="s1">&#39;similarity&#39;</span><span class="p">,</span> <span class="s1">&#39;num_interactions&#39;</span><span class="p">]</span> 
-    <span class="c1"># Create dataframe to hold top users</span>
-    <span class="n">neighbors_df</span>  <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span> <span class="n">colName</span><span class="p">)</span> 
-    
+   
     <span class="c1"># Populate the dataframe</span>
-    <span class="k">for</span> <span class="nb">id</span> <span class="ow">in</span> <span class="n">user_item</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
-        <span class="k">if</span> <span class="nb">id</span> <span class="o">!=</span> <span class="n">user_id</span><span class="p">:</span>
-            <span class="n">neighbor_id</span> <span class="o">=</span> <span class="nb">id</span>
-            
-            <span class="c1"># Get user to user similarity</span>
-            <span class="n">similarity</span> <span class="o">=</span> <span class="n">user_item</span><span class="p">[</span><span class="n">user_item</span><span class="o">.</span><span class="n">index</span> <span class="o">==</span> <span class="n">user_id</span><span class="p">]</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">user_item</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-            
-            <span class="c1"># Get number of interactions for user ot article</span>
-            <span class="n">num_interactions</span> <span class="o">=</span> <span class="n">user_item</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-            <span class="n">neighbors_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">neighbor_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">neighbor_id</span><span class="p">,</span> <span class="n">similarity</span><span class="p">,</span> <span class="n">num_interactions</span><span class="p">]</span>
+    <span class="c1">#find user similarity w/ dot product</span>
+    <span class="n">similarity</span> <span class="o">=</span> <span class="n">user_item</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">user_item</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">user_id</span><span class="p">])</span>
     
-    <span class="n">neighbors_df</span><span class="p">[</span><span class="s1">&#39;similarity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">neighbors_df</span><span class="p">[</span><span class="s1">&#39;similarity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
-    <span class="n">neighbors_df</span><span class="p">[</span><span class="s1">&#39;neighbor_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">neighbors_df</span><span class="p">[</span><span class="s1">&#39;neighbor_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
-    <span class="n">neighbors_df</span> <span class="o">=</span> <span class="n">neighbors_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;similarity&#39;</span><span class="p">,</span> <span class="s1">&#39;neighbor_id&#39;</span><span class="p">],</span> <span class="n">ascending</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">])</span>
+    <span class="c1"># sort by similarity</span>
+    <span class="n">similarity</span> <span class="o">=</span> <span class="n">similarity</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;similarity&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+    <span class="c1">#get number of interactions for each user</span>
+    <span class="n">num_interactions</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">user_id</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">(</span><span class="s1">&#39;num_interactions&#39;</span><span class="p">)</span>
     
-    <span class="k">return</span> <span class="n">neighbors_df</span> <span class="c1"># Return the dataframe specified in the doc_string</span>
+    <span class="c1">#combine the value counts with similarity</span>
+    <span class="n">neighbors_df</span> <span class="o">=</span> <span class="n">similarity</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">num_interactions</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;user_id&#39;</span><span class="p">,</span> 
+                        <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;user_id&#39;</span><span class="p">:</span><span class="s1">&#39;neighbor_id&#39;</span><span class="p">})</span>
+
+    <span class="n">neighbors_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;similarity&#39;</span><span class="p">,</span> <span class="s1">&#39;num_interactions&#39;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">neighbors_df</span> <span class="c1"># Return the dataframe specified in the doc_strin</span>
 
 
 <span class="k">def</span> <span class="nf">user_user_recs_part2</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
@@ -14907,7 +14902,7 @@ The 3 most similar users to user 46 are: [1, 3933, 23]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quick spot check - don&#39;t change this code - just use it to test your functions</span>
@@ -14956,7 +14951,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Tests with a dictionary of results</span>
@@ -14972,7 +14967,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Dictionary Test Here</span>
@@ -15018,7 +15013,7 @@ The top 10 recommendations for user 20 are the following article names:
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Provide your response here.</strong></p>
+<p>The new user has no interactions of all articles. So it is better for new user to recommend articles by using rank-based recommendations, that means that The collaborative filtering can not be used for new user.it would be better to recommend articles by using rank-based recommendations. Additionally, we could use the get_top_article_ids function that is mentioned above to show the most popular articles to our new users.</p>
 
 </div>
 </div>
@@ -15033,7 +15028,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">new_user</span> <span class="o">=</span> <span class="s1">&#39;0.0&#39;</span>
@@ -15050,7 +15045,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="nb">set</span><span class="p">(</span><span class="n">new_user_recs</span><span class="p">)</span> <span class="o">==</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;1314.0&#39;</span><span class="p">,</span><span class="s1">&#39;1429.0&#39;</span><span class="p">,</span><span class="s1">&#39;1293.0&#39;</span><span class="p">,</span><span class="s1">&#39;1427.0&#39;</span><span class="p">,</span><span class="s1">&#39;1162.0&#39;</span><span class="p">,</span><span class="s1">&#39;1364.0&#39;</span><span class="p">,</span><span class="s1">&#39;1304.0&#39;</span><span class="p">,</span><span class="s1">&#39;1170.0&#39;</span><span class="p">,</span><span class="s1">&#39;1431.0&#39;</span><span class="p">,</span><span class="s1">&#39;1330.0&#39;</span><span class="p">]),</span> <span class="s2">&quot;Oops!  It makes sense that in this case we would want to recommend the most popular articles, because we don&#39;t know anything about these users.&quot;</span>
@@ -15092,7 +15087,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">tokenize</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -15220,7 +15215,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># make recommendations for a brand new user</span>
@@ -15248,7 +15243,7 @@ The top 10 recommendations for user 20 are the following article names:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[39]:</div>
+    <div class="prompt output_prompt">Out[36]:</div>
 
 
 
@@ -15284,7 +15279,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># make a recommendations for a user who only has interacted with article id &#39;1427.0&#39;</span>
@@ -15301,7 +15296,7 @@ The top 10 recommendations for user 20 are the following article names:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[40]:</div>
+    <div class="prompt output_prompt">Out[37]:</div>
 
 
 
@@ -15338,7 +15333,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load the matrix here</span>
@@ -15352,7 +15347,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># quick look at the matrix</span>
@@ -15369,7 +15364,7 @@ The top 10 recommendations for user 20 are the following article names:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[42]:</div>
+    <div class="prompt output_prompt">Out[39]:</div>
 
 
 
@@ -15582,7 +15577,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Perform SVD on the User-Item Matrix Here</span>
@@ -15595,10 +15590,47 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of Nans in the users to item interactions matrix is: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">user_item_matrix</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of Nans in the users to latent features matrix is: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of Nans in the segma matrix is: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of Nans in the items to latent features matrix is: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">vt</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Number of Nans in the users to item interactions matrix is: 0
+Number of Nans in the users to latent features matrix is: 0
+Number of Nans in the segma matrix is: 0
+Number of Nans in the items to latent features matrix is: 0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Provide your response here.</strong></p>
+<p>We can use SVD because there are no missing values (NANs) in our data.</p>
 
 </div>
 </div>
@@ -15613,7 +15645,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">num_latent_feats</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">700</span><span class="o">+</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
@@ -15684,7 +15716,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_train</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">40000</span><span class="p">)</span>
@@ -15765,7 +15797,7 @@ http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#ix-indexer-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;articles of the test set we can make predictions about&#39;</span><span class="p">)</span>
@@ -15813,7 +15845,7 @@ users of the test set we cant make predictions about
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Replace the values in the dictionary below</span>
@@ -15868,7 +15900,7 @@ users of the test set we cant make predictions about
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># fit SVD on the user_item_train matrix</span>
@@ -15882,7 +15914,7 @@ users of the test set we cant make predictions about
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Use these cells to see how well you can use the training </span>
@@ -15955,7 +15987,7 @@ users of the test set we cant make predictions about
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call the svd algorithm</span>
@@ -15989,19 +16021,6 @@ users of the test set we cant make predictions about
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -16013,7 +16032,16 @@ users of the test set we cant make predictions about
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Previous results may be not significant in statistical terms, since just a few users (20) are shared among trainset and testset. To solve the cold-start problem, we can deploy a rank based recommendation method or content based recommendation.</p>
+<p>Regarding the previous results, It may be not significant in statistical terms.since just a few users (20) are shared among training set and testing test.</p>
+<ul>
+<li>In more details, The test accuracy is decreased according to the increase in the number of latent features, although the training accuracy is increased.</li>
+<li><p>The accuracy metric is not useful for this case, because it is imbalanced between users and articles. It means that predicted interactions between users and articles are not many.</p>
+</li>
+<li><p>The explanation for this is that with increasing latent features causes overfitting during training.</p>
+</li>
+<li><p>We could use deploy a rank based recommendation method or content-based recommendation to solve the cold-start problem.</p>
+</li>
+</ul>
 
 </div>
 </div>
@@ -16036,7 +16064,7 @@ users of the test set we cant make predictions about
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">subprocess</span> <span class="k">import</span> <span class="n">call</span>
@@ -16044,26 +16072,6 @@ users of the test set we cant make predictions about
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[52]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>0</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
